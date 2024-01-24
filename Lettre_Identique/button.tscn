@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1biyute6eq5n"]
+
+[ext_resource type="Script" path="res://rep.gd" id="1_ffhtp"]
+
+[sub_resource type="SystemFont" id="SystemFont_0tgp0"]
+font_names = PackedStringArray("Comic Sans MS")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_iy0hh"]
+/font_sizes/a = 96
+/fonts/j = SubResource("SystemFont_0tgp0")
+
+[node name="Button" type="Button" groups=["game"]]
+anchors_preset = -1
+anchor_right = 0.214
+anchor_bottom = 0.917702
+offset_right = -0.31427
+offset_bottom = -388.398
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_iy0hh")
+script = ExtResource("1_ffhtp")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

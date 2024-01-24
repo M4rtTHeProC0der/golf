@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdtqcyvahlr7h"]
+
+[ext_resource type="PackedScene" uid="uid://1pp540rifqeg" path="res://lettre_rec.tscn" id="1_g6tjc"]
+[ext_resource type="PackedScene" uid="uid://b1biyute6eq5n" path="res://button.tscn" id="1_u2lmp"]
+[ext_resource type="Script" path="res://Label2.gd" id="3_37xoq"]
+[ext_resource type="Script" path="res://restart.gd" id="4_m2tr5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o80pf"]
+font_size = 48
+
+[node name="Jeu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 644.0
+
+[node name="Button4" parent="Control" instance=ExtResource("1_u2lmp")]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 386.0
+offset_right = 73.686
+offset_bottom = -15.0001
+
+[node name="Button5" parent="Control" instance=ExtResource("1_u2lmp")]
+layout_mode = 1
+offset_left = 448.0
+offset_top = 386.0
+offset_right = 457.686
+offset_bottom = -15.0001
+
+[node name="Button6" parent="Control" instance=ExtResource("1_u2lmp")]
+layout_mode = 1
+offset_left = 832.0
+offset_top = 386.0
+offset_right = 839.686
+offset_bottom = -15.0001
+
+[node name="Lettre_rec" parent="." instance=ExtResource("1_g6tjc")]
+offset_left = 520.0
+offset_top = 176.0
+offset_right = 560.0
+offset_bottom = 243.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 408.0
+offset_top = 24.0
+offset_right = 618.0
+offset_bottom = 47.0
+text = "Quelle lettre est identique?"
+
+[node name="Label2" type="Label" parent="." groups=["etat"]]
+offset_left = 806.0
+offset_top = 8.0
+offset_right = 1131.0
+offset_bottom = 232.0
+label_settings = SubResource("LabelSettings_o80pf")
+script = ExtResource("3_37xoq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 56.0
+offset_top = 184.0
+offset_right = 224.0
+offset_bottom = 248.0
+text = "Recommencer"
+script = ExtResource("4_m2tr5")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]

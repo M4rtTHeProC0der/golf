@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3l3b0w1x5gg4"]
+
+[ext_resource type="PackedScene" uid="uid://bycifiyuxx4do" path="res://scenes/characters/player/player.tscn" id="1_4xtkj"]
+[ext_resource type="PackedScene" uid="uid://6xr5ga0s8lne" path="res://scenes/characters/Evil_AI.tscn" id="2_j2j6u"]
+[ext_resource type="PackedScene" uid="uid://bcrmim0sa3kkr" path="res://scenes/characters/Good_AI.tscn" id="3_c3yjp"]
+
+[node name="Forest" type="Node2D"]
+position = Vector2(-9, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_4xtkj")]
+position = Vector2(120, 115)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 9)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1210, 482)
+polygon = PackedVector2Array(1, -4, 824, -38, 1156, 8, 1313, 213, 1283, 587, 1111, 561, 1019, 695, 1085, 338, 994, 151, 735, 255, 737, 529, 294, 470, 482, 262, 220, 210, 141, 413, 267, 604, 548, 595, 628, 755, 935, 746, 1028, 793, 1309, 685, 1417, 617, 1441, 328, 1381, 104, 1234, -55, 875, -128, 586, -123)
+
+[node name="doom" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(648, 70)
+
+[node name="AlphaAdonis" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(367, 43)
+
+[node name="AlphaAdonis2" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(55, 678)
+
+[node name="doom2" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-237, 493)
+
+[node name="doom3" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(1839, 780)
+
+[node name="doom4" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-237, 109)
+
+[node name="doom5" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-967, 1553)
+
+[node name="doom6" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-2525, 894)
+
+[node name="doom7" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-2207, -1282)
+
+[node name="doom8" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(1335, -1449)
+
+[node name="AlphaAdonis3" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(346, 379)
+
+[node name="AlphaAdonis4" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(-852, 2)
+
+[node name="doom9" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-543, -590)
+
+[node name="doom10" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(224, -502)
+
+[node name="doom11" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(-906, 729)
+
+[node name="AlphaAdonis5" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(2356, 675)
+
+[node name="AlphaAdonis6" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(2397, 870)
+
+[node name="doom12" parent="." instance=ExtResource("2_j2j6u")]
+position = Vector2(2296, 581)
+
+[node name="AlphaAdonis7" parent="." instance=ExtResource("3_c3yjp")]
+position = Vector2(2417, 884)

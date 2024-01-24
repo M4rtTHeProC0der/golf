@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://bycifiyuxx4do"]
+
+[ext_resource type="Texture2D" uid="uid://bqq818lyvk1v6" path="res://icon.svg" id="1_b2d0c"]
+[ext_resource type="Script" path="res://scenes/characters/player/Label.gd" id="2_8ggdp"]
+
+[sub_resource type="GDScript" id="GDScript_8tnep"]
+script/source = "extends CharacterBody2D
+
+@export var MAX_SPEED = 300
+@export var ACCELERATION = 1500
+@export var FRICTION = 1200
+
+const bulletPath = preload('res://scenes/projectiles/arrow01.tscn')
+
+@onready var axis = Vector2.ZERO
+
+func _physics_process(delta):
+
+	move(delta)
+	
+	if Input.is_action_just_pressed('shoot'):
+		print('shooting')
+		shoot()
+	$Node2D.look_at(get_global_mouse_position())
+#func _unhandled_input(event):
+	#print(event)
+func get_input_axis():
+	axis.x = int(Input.is_action_pressed('move_right')) - int(Input.is_action_pressed(\"move_left\"))
+	axis.y = int(Input.is_action_pressed('move_down')) - int(Input.is_action_pressed(\"move_up\"))
+	return axis.normalized()
+	
+func move(delta):
+	
+	axis = get_input_axis()
+	
+	if axis == Vector2.ZERO:
+		apply_friction(FRICTION * delta)
+	else:
+		apply_movement(axis * ACCELERATION * delta)
+	move_and_slide()
+	
+func apply_friction(amount):
+	if velocity.length() > amount:
+		velocity -= velocity.normalized() * amount
+		
+	else:
+		velocity =  Vector2.ZERO
+
+func apply_movement(accel):
+	velocity += accel
+	velocity = velocity.limit_length(MAX_SPEED)
+
+func shoot():
+	var bullet = bulletPath.instantiate()
+	
+	get_parent().add_child(bullet)
+	
+	bullet.position = $Node2D/bullet_spawn.global_position
+	
+	bullet.velocity = get_global_mouse_position() - bullet.position
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgj74"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = SubResource("GDScript_8tnep")
+MAX_SPEED = 450
+
+[node name="look" type="Sprite2D" parent="."]
+texture = ExtResource("1_b2d0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wgj74")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.485, 0.485)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="bullet_spawn" type="Marker2D" parent="Node2D"]
+position = Vector2(106, 0)
+
+[node name="Label" type="Label" parent="." groups=["green_label"]]
+offset_left = -1165.0
+offset_top = -643.0
+offset_right = -908.0
+offset_bottom = -620.0
+theme_override_font_sizes/font_size = 38
+text = "Number of Green squares: "
+script = ExtResource("2_8ggdp")

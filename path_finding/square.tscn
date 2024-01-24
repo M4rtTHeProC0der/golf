@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://huanm024juy"]
+
+[ext_resource type="Texture2D" uid="uid://ba4x37bv2ird5" path="res://resources/pflab-SheetLw1.png" id="1_dty1e"]
+[ext_resource type="Script" path="res://square.gd" id="2_sixqv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tl3p8"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_plcri"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvliw"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Pflab-sheetLw1" type="Sprite2D"]
+texture = ExtResource("1_dty1e")
+script = ExtResource("2_sixqv")
+metadata/_edit_group_ = true
+
+[node name="dist_start" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -34.0
+offset_right = 52.0
+offset_bottom = -11.0
+text = "y"
+label_settings = SubResource("LabelSettings_tl3p8")
+metadata/_edit_use_anchors_ = true
+
+[node name="dist_end" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -9.0
+text = "x"
+label_settings = SubResource("LabelSettings_plcri")
+metadata/_edit_use_anchors_ = true
+
+[node name="weight" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 29.0
+offset_bottom = 36.0
+text = "z"
+label_settings = SubResource("LabelSettings_pvliw")
+metadata/_edit_use_anchors_ = true

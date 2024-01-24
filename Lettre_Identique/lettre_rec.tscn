@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://1pp540rifqeg"]
+
+[ext_resource type="Script" path="res://lettre_rec.gd" id="1_uracc"]
+
+[sub_resource type="SystemFont" id="SystemFont_c5on8"]
+font_names = PackedStringArray("Comic Sans MS", "Thinking Of Betty")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7q8o"]
+font = SubResource("SystemFont_c5on8")
+font_size = 48
+
+[node name="Label" type="Label" groups=["game", "lettre_rec"]]
+offset_right = 64.0
+offset_bottom = 40.0
+label_settings = SubResource("LabelSettings_d7q8o")
+script = ExtResource("1_uracc")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcrmim0sa3kkr"]
+
+[ext_resource type="Script" path="res://scenes/characters/Good_AI.gd" id="1_2lxt8"]
+[ext_resource type="Texture2D" uid="uid://b842j126ti03b" path="res://resources/good.png" id="1_cqflq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpftw"]
+size = Vector2(128, 128)
+
+[node name="AlphaAdonis" type="CharacterBody2D" groups=["green"]]
+script = ExtResource("1_2lxt8")
+ACCELERATION = 910
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cqflq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dpftw")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(182, 158)
